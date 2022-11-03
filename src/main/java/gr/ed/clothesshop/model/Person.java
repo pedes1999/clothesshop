@@ -8,7 +8,7 @@ package gr.ed.clothesshop.model;
  *
  * @author pnbdr
  */
-public class Person extends PersistentClass{
+public abstract class Person extends PersistentClass{
     private String name;
     private String address;
     private String email;

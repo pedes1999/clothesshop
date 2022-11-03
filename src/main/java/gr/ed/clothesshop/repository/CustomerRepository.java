@@ -10,25 +10,19 @@ import gr.ed.clothesshop.model.Customer;
  *
  * @author pnbdr
  */
-public class CustomerRepository {
-    private Customer[] customers = new Customer[20];
-    private int position = 0;
-    
-    //CRUD should be implemented!!!!
-    
+public interface CustomerRepository {
+    //CRUD
     //Create
-    public void insertCustomer(Customer customer){
-        //prwta vazw customer kai meta auksanw to position kata 1
-        if(position < 20 ) {
-        customers[position++] = customer ;
-        }
-    }
+    int create(Customer customer);
+    //Read Single
+    Customer read( int customerId);
     
+    //Read multiple
+    Customer[] read();
     
-    //Read
-    public void printCustomer(){
-        for (int i = 0 ; i < position ; i++){
-            System.out.println(customers[i].getName() + " " + customers[i].getEmail());
-        }
-    }
+    //Update email
+    void update(int customerId , String email);
+    
+   //Delete
+    boolean delete(int customerId);
 }

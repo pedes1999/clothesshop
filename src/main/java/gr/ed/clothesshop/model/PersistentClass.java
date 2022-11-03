@@ -8,7 +8,7 @@ package gr.ed.clothesshop.model;
  *
  * POJO CLASS (FIELDS,Getters,Setters)
  */
-public class PersistentClass {
+public abstract class PersistentClass {
     private int id;
 
     public int getId() {
