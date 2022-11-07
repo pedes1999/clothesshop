@@ -5,6 +5,7 @@
 package gr.ed.clothesshop.repository;
 
 import gr.ed.clothesshop.model.Customer;
+import java.util.List;
 
 /**
  *
@@ -18,7 +19,7 @@ public interface CustomerRepository {
     Customer read( int customerId);
     
     //Read multiple
-    Customer[] read();
+    List<Customer> read();
     
     //Update email
     void update(int customerId , String email);
