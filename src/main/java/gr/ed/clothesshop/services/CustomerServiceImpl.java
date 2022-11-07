@@ -3,12 +3,20 @@ package gr.ed.clothesshop.services;
 import gr.ed.clothesshop.model.Customer;
 import gr.ed.clothesshop.model.Order;
 import gr.ed.clothesshop.model.Product;
-import gr.ed.clothesshop.repository.CustomerRepositoryImpl;
+import gr.ed.clothesshop.repository.CustomerRepository;
 import gr.ed.clothesshop.repository.ProductRepository;
+import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
-    private CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
-    private ProductRepository productRepository = new ProductRepository();
+    private final CustomerRepository customerRepository;
+    private final ProductRepository productRepository;
+
+    public CustomerServiceImpl(CustomerRepository customerRepository, ProductRepository productRepository) {
+        this.customerRepository = customerRepository;
+        this.productRepository = productRepository;
+    }
+    
+    
     @Override
     public boolean register(Customer customer) {
         customerRepository.create(customer);
@@ -21,8 +29,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Product[] searchProduct(String productName) {
-        return productRepository.searchProduct(productName);
+    public List<Product> searchProduct(String productName) {
+        return productRepository.read();
     }
 
     @Override
@@ -32,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void printCustomers() {
-       Customer[] customers =  customerRepository.read();
+       List<Customer> customers =  customerRepository.read();
        for (Customer customer:customers){
            System.out.println(customer);
        }

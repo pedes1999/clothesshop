@@ -7,8 +7,13 @@ package gr.ed.clothesshop;
 
 import gr.ed.clothesshop.model.Customer;
 import gr.ed.clothesshop.model.Product;
+import gr.ed.clothesshop.repository.CustomerRepository;
+import gr.ed.clothesshop.repository.ProductRepository;
+import gr.ed.clothesshop.repository.impl.CustomerRepositoryImpl;
+import gr.ed.clothesshop.repository.impl.ProductRepositoryImpl;
 import gr.ed.clothesshop.services.CustomerService;
 import gr.ed.clothesshop.services.CustomerServiceImpl;
+import java.util.List;
 
 /**
  *
@@ -21,14 +26,15 @@ public class Clothesshop {
         customer.setName("Perikis");
         customer.setId(1);
         customer.setEmail("periklis@mail.com");
+        CustomerRepository customerRepository = new CustomerRepositoryImpl();
+        ProductRepository productRepository = new ProductRepositoryImpl();
         
-        
-        CustomerService customerService = new CustomerServiceImpl();
+        CustomerService customerService = new CustomerServiceImpl(customerRepository,productRepository);
         customerService.register(customer);
         
         customerService.printCustomers();
         System.out.println("----------------------------------");
-        Product[] products = customerService.searchProduct("suit");
+        List<Product> products = customerService.searchProduct("suit");
         for(Product product:products){
         if (product!=null)  System.out.println(product.getId() + " " + product.getName());
         }

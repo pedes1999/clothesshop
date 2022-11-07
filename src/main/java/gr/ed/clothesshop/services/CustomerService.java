@@ -19,7 +19,7 @@ public interface CustomerService {
     
     boolean placeOrder(int customerId,int productId , int orderId);
     
-    Product[] searchProduct(String productName);
+    List<Product> searchProduct(String productName);
     
     Order showOrderint(int orderId);
     

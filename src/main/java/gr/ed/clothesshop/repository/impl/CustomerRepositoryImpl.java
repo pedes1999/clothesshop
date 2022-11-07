@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gr.ed.clothesshop.repository;
+package gr.ed.clothesshop.repository.impl;
 
 import gr.ed.clothesshop.model.Customer;
+import gr.ed.clothesshop.repository.CustomerRepository;
 import java.util.ArrayList;
 import java.util.List;
 
